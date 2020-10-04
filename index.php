@@ -7,7 +7,6 @@
         $list = explode(" ",$contact_string);
         $_GET["Email"] = $list[0];
         $_GET["Tel"] = $list[1];
-        echo $_GET["Email"];
-        echo $_GET["Tel"];
+        echo $_GET;
     }
 ?>
