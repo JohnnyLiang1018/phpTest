@@ -4,7 +4,8 @@
 // $subject = $_GET('fname');
 $contact = file("./resources/contact.txt");
 $list = explode(" ",$contact);
-echo $list;
+echo $list[0];
+echo $list[1];
 
 
 ?>
