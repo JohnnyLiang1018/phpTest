@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
 
     if($_GET){
-        echo "Hello World";
+        echo json_encode("Hello World");
     }
 
 ?>
