@@ -1,0 +1,6 @@
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: "GET,POST"
+AuthName "Users"
+AuthType Basic
+AuthUserFile /.htpasswd
+Require valid-user
