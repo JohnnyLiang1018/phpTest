@@ -1,6 +1,6 @@
 <?php
     header("Access-Control-Allow-Origin: https://sevensea.herokuapp.com");
-    header("Access-Control-Allow-Headers");
+    header("Access-Control-Allow-Headers:*");
     
     if($_GET){
         $contact = file("./resources/contact.txt");
