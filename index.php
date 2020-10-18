@@ -27,5 +27,4 @@
             }
         }
     }
-    echo "Hello World"
 ?>
