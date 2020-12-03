@@ -1,7 +1,12 @@
 <?php
     header("Access-Control-Allow-Origin: https://sevensea.herokuapp.com");
     header("Access-Control-Allow-Headers:*");
-    
+
+    $allowed_domains = ["https://sevensea.herokuapp.com","https://thebigcat.us","https://brandon-ngo.xyz","https://ancient-retreat-00756.herokuapp.com"];
+    if (in_array($_SERVER['HTTP_ORIGIN'],$allowed_domains)) {
+        header ('Access-Control-Allow-Origin:' . $_SERVER['HTTP_ORIGIN']);
+    }
+
     $servername = "us-cdbr-east-02.cleardb.com";
     $username = "ba03357e37cb47";
     $password = "74664542";
