@@ -27,7 +27,7 @@
     if($_POST){
         $json = file_get_contents('php://input');
         $data = json_decode($json);
-        switch ($data["action"]) {
+        switch ($data->action) {
             case "admin":
                 if(!$data->username || !$data->password){
                     echo json_encode(array('code'=>400,'data'=>'','message'=>'Login failed'));
