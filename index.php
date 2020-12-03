@@ -45,7 +45,7 @@
                 }
                 break;
             case "addUser":
-                $query = "INSERT INTO Users (email,lName,fName,addr,cellp,homep) VALUES ('".$data["email"]."','".$data["lName"]."','".$data["fName"]."','".$data["addr"]."','".$data["cellp"]."','".$data["homep"]."');";
+                $query = "INSERT INTO Users (email,lName,fName,addr,cellp,homep) VALUES ('".$data->email."','".$data->lName."','".$data->fName."','".$data->addr."','".$data->cellp."','".$data->homep."');";
                 if($res = $mysqli->query($query)){
                     console_log("Success");
                 }
