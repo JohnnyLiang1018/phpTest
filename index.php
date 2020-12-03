@@ -28,7 +28,7 @@
         $json = file_get_contents('php://input');
         $data = json_decode($json);
         switch ($_POST['action']) {
-            case 'admin':
+            case "admin":
                 if(!$data->username || !$data->password){
                     echo json_encode(array('code'=>400,'data'=>'','message'=>'Login failed'));
                 }
@@ -44,7 +44,7 @@
                     }
                 }
                 break;
-            case 'addUser':
+            case "addUser":
                 $query = "INSERT INTO Users (email,lName,fName,addr,cellp,homep) VALUES ('".$data["email"]."','".$data["lName"]."','".$data["fName"]."','".$data["addr"]."','".$data["cellp"]."','".$data["homep"]."');";
                 if($res = $mysqli->query($query)){
                     console_log("Success");
@@ -52,7 +52,9 @@
                 else{
                     console_log("Failed");
                 }
-            
+                break;
+            default:
+                echo json_encode(array('code'=>400,'data'=>'','message'=>'Request failed'));
         }
     }
 ?>
