@@ -2,11 +2,7 @@
 //$s=parse_url(,PHP_URL_QUERY);
 $arr=[];
 
-$servername = "us-cdbr-east-02.cleardb.com";
-$username = "ba03357e37cb47";
-$password = "74664542";
-$dbname = "heroku_84c7d2e25ecd866";
-$mysqli = new mysqli($servername,$username,$password,$dbname);
+
 
 if(empty($_SERVER['QUERY_STRING'])){
     //header("Location: user.php");
@@ -35,6 +31,11 @@ else {
 
 
 function checkDuplicateUsers($email){//make it so dupe users arent allowed adjust makeUser.php too
+    $servername = "us-cdbr-east-02.cleardb.com";
+    $username = "ba03357e37cb47";
+    $password = "74664542";
+    $dbname = "heroku_84c7d2e25ecd866";
+    $mysqli = new mysqli($servername,$username,$password,$dbname);
     if($mysqli->connect_error){
         echo $mysqli->connect_error;
     }
@@ -54,6 +55,11 @@ function checkDuplicateUsers($email){//make it so dupe users arent allowed adjus
    
 }
 function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
+    $servername = "us-cdbr-east-02.cleardb.com";
+    $username = "ba03357e37cb47";
+    $password = "74664542";
+    $dbname = "heroku_84c7d2e25ecd866";
+    $mysqli = new mysqli($servername,$username,$password,$dbname);
     if($mysqli->connect_error){
         echo $mysqli->connect_error;
     }
@@ -67,6 +73,7 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
     }
     else{
         
+
         echo '
         <p>Successfully inserted into database</p>
         <br>';
