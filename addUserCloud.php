@@ -80,7 +80,6 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
         $links[1]="https://brandon-ngo.xyz/wp-content/themes/astra/addUserCloud.php?fname=$fname&lname=$lname&email=$email&pw=$pas&addr=$addr&hPho=$hpho&cPho=$cpho";
         $links[2]="https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addUserCloud.php?fname=$fname&lname=$lname&email=$email&pw=$pas&addr=$addr&hPho=$hpho&cPho=$cpho";
         foreach($links as $d){
-            echo $d;
             $ch = curl_init();
             curl_setopt($ch,CURLOPT_SSL_VERIFYPEER , 0);
             curl_setopt($ch,CURLOPT_URL, $d);
@@ -94,6 +93,7 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
             curl_close($ch);
             //echo $fp;
         }
+        echo json_encode($links);
 
         echo '
         <p>Successfully inserted into database</p>
