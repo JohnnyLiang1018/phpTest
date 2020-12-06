@@ -76,16 +76,9 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
     }
     else{
         $links=[];
-        $links[0]=sprintf(
-            "https://thebigcat.us/wp-admin/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",
-            sanitize($conn,$fname), sanitize($conn,$lname), sanitize($conn,$email),sanitize($conn,$pas),
-            sanitize($conn,$addr), sanitizePhone($conn,$hpho), sanitizePhone($conn,$cpho));
-        $links[1]=sprintf("https://brandon-ngo.xyz/wp-content/themes/astra/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",
-            sanitize($conn,$fname), sanitize($conn,$lname), sanitize($conn,$email),sanitize($conn,$pas),
-            sanitize($conn,$addr), sanitizePhone($conn,$hpho), sanitizePhone($conn,$cpho));
-        $links[2]=sprintf("https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",
-            sanitize($conn,$fname), sanitize($conn,$lname), sanitize($conn,$email),sanitize($conn,$pas),
-            sanitize($conn,$addr), sanitizePhone($conn,$hpho), sanitizePhone($conn,$cpho));
+        $links[0]=sprintf("https://thebigcat.us/wp-admin/addUserCloud.php?fname=".$fname."&lname=".$lname."&email=".$email."&pw=".$pas."&addr=".$addr."&hPho=".$hpho."&cPho=".$cpho);
+        $links[1]=sprintf("https://brandon-ngo.xyz/wp-content/themes/astra/addUserCloud.php?fname=".$fname."&lname=".$lname."&email=".$email."&pw=".$pas."&addr=".$addr."&hPho=".$hpho."&cPho=".$cpho);
+        $links[2]=sprintf("https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addUserCloud.php?fname=".$fname."&lname=".$lname."&email=".$email."&pw=".$pas."&addr=".$addr."&hPho=".$hpho."&cPho=".$cpho);
         foreach($links as $d){
             $ch = curl_init();
             curl_setopt($ch,CURLOPT_SSL_VERIFYPEER , 0);
