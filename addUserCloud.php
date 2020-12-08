@@ -83,12 +83,12 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
             $ch = curl_init();
             curl_setopt($ch,CURLOPT_SSL_VERIFYPEER , 0);
             curl_setopt($ch,CURLOPT_URL, $d);
-            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            //curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
             curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            //curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+            //curl_setopt($ch, CURLOPT_TIMEOUT, 30);
             $fp = curl_exec($ch);
             curl_close($ch);
             //echo $fp;
