@@ -53,7 +53,7 @@ function checkDuplicateUsers($email){//make it so dupe users arent allowed adjus
     else{
         return true;
     }
-
+    $mysqli->close();
    
    
 }
@@ -75,15 +75,31 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
         echo "Unable to insert into database, please refresh the page and try again<br><br>";
     }
     else{
-        
+        $links=[];
+        $links[0]=sprintf("https://thebigcat.us/wp-admin/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",$fname,$lname,$email,$pas,$addr,$hpho,$cpho);
+        $links[1]=sprintf("https://brandon-ngo.xyz/wp-content/themes/astra/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",$fname,$lname,$email,$pas,$addr,$hpho,$cpho);
+        $links[2]=sprintf("https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addUserCloud.php?fname=%s&lname=%s&email=%s&pw=%s&addr=%s&hPho=%s&cPho=%s",$fname,$lname,$email,$pas,$addr,$hpho,$cpho);
+        foreach($links as $d){
+            $ch = curl_init();
+            curl_setopt($ch,CURLOPT_SSL_VERIFYPEER , 0);
+            curl_setopt($ch,CURLOPT_URL, $d);
+            curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt($ch, CURLOPT_VERBOSE, TRUE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+            $fp = curl_exec($ch);
+            curl_close($ch);
+            //echo $fp;
         echo '
         <p>Successfully inserted into database</p>
         <br>';
        #$result->close(); #Got error when closing this for some reason
-        #$conn->close();
+        $mysqli->close();
+        }
     }
 }
-
 function sanitize($conn,$var){
     return $conn->real_escape_string($var);
 }
