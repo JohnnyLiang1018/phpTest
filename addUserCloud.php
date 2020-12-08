@@ -96,9 +96,9 @@ function createUser($fname,$lname,$email,$pas,$addr, $hpho,$cpho){
         <p>Successfully inserted into database</p>
         <br>';
        #$result->close(); #Got error when closing this for some reason
-        $mysqli->close();
         }
     }
+    $mysqli->close();
 }
 function sanitize($conn,$var){
     return $conn->real_escape_string($var);
