@@ -10,7 +10,7 @@
         $json = file_get_contents('php://input');
         $data = json_decode($json);
         $review = urlencode($data->review);
-        $url = sprintf("https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addReviewCloud.php?product=%s&rating=%s&overwrite=True&text_review=%s&email=&company_affiliation=sevensea",$data->product,$data->rating,$review);
+        $url = sprintf("https://ancient-retreat-00756.herokuapp.com/php_files/Hw_files/addReviewCloud.php?product=Travel+to+Asia+Island&rating=5&overwrite=True&text_review=Nice+service&email=&company_affiliation=sevensea");
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL, $url);
         $fp = curl_exec($ch);
